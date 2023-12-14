@@ -1,17 +1,13 @@
-﻿using HRManagement.Domain.Common;
+﻿using HRManagement.Application.DTOs.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace HRManagement.Domain
+namespace HRManagement.Application.DTOs.LeaveAllocationDtos
 {
-    public class LeaveAllocation : BaseDomainEntity
+    public class UpdateLeaveAllocationDto : BaseDto
     {
         public int NumberOfDays { get; set; }
-
-        public LeaveType Type { get; set; }
 
         public int LeaveTypeId { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HRManagement.Application.DTOs.LeaveAllocationDtos;
-using HRManagement.Application.Features.LeaveAllocation.Requests.Queries;
+using HRManagement.Application.Features.LeaveAllocations.Requests.Queries;
 using HRManagement.Application.Persistence.Cortract;
 using MediatR;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HRManagement.Application.Features.LeaveAllocation.Handlers.Queries
+namespace HRManagement.Application.Features.LeaveAllocations.Handlers.Queries
 {
     internal class GetLeaveAllocationListRequesthandler : IRequestHandler<GetLeaveAllocationListRequest, List<LeaveAllocationDto>>
     {
