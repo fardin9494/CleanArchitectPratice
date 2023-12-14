@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using HRManagement.Application.DTOs;
+using HRManagement.Application.DTOs.LeaveAllocationDtos;
 using HRManagement.Application.DTOs.LeaveRequestDtos;
+using HRManagement.Application.DTOs.LeaveTypeDtos;
 using HRManagement.Domain;
 using System;
 using System.Collections.Generic;

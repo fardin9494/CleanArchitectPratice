@@ -16,7 +16,7 @@ namespace HRManagement.Domain
 
         public DateTime RequestDate { get; set; }
 
-        public DateTime ActionDate { get; set; }
+        public DateTime? ActionDate { get; set; }
 
         public string RequestDiscription { get; set; }
 

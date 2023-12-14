@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HRManagement.Application.DTOs.LeaveTypeDtos;
 
 namespace HRManagement.Application.DTOs.LeaveRequestDtos
 {
