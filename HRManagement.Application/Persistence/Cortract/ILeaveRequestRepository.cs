@@ -1,4 +1,5 @@
-﻿using HRManagement.Domain;
+﻿using HRManagement.Application.DTOs.LeaveRequestDtos;
+using HRManagement.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,5 +12,7 @@ namespace HRManagement.Application.Persistence.Cortract
         Task<List<LeaveRequest>> GetLeaveRquestwithDeatailList();
 
         Task<LeaveRequest> GetLeaveRequestWithDetail(int  id);
+        
+        Task ChangeApprovalStatus(LeaveRequest selectedRequest, bool? ApprovalStatus);
     }
 }

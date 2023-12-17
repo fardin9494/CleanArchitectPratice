@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HRManagement.Application.DTOs.LeaveRequestDtos
 {
-    public class ChangeLeaveRequestAproveal : BaseDto
+    public class ChangeLeaveRequestAprovealDto : BaseDto
     {
         public bool? IsAproved { get; set; }
     }

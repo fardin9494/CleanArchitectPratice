@@ -8,6 +8,8 @@ namespace HRManagement.Application.Persistence.Cortract
     {
         Task<T> GetById(int id);
 
+        Task<bool> IsExist(int id);
+
         Task<IReadOnlyList<T>> GetAll();
 
         Task<T> Add(T entity);

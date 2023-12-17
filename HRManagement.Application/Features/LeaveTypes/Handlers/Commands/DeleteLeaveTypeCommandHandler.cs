@@ -10,24 +10,22 @@ using System.Threading.Tasks;
 
 namespace HRManagement.Application.Features.LeaveTypes.Handlers.Commands
 {
-    public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeCommand, Unit>
+    internal class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
         private readonly IMapper _mapper;
 
-        public UpdateLeaveTypeCommandHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
+        public DeleteLeaveTypeCommandHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
         {
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
         {
-            var selectedType =await _leaveTypeRepository.GetById(request.leaveTypeDto.Id);
-            _mapper.Map(request.leaveTypeDto, selectedType);
-            await _leaveTypeRepository.Update(selectedType);
-            return Unit.Value;
+            var leavetype = await _leaveTypeRepository.GetById(request.Id);
+            await _leaveTypeRepository.Delete(leavetype);
         }
     }
 }
