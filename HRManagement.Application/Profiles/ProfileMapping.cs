@@ -12,12 +12,24 @@ namespace HRManagement.Application.Profiles
     internal class ProfileMapping : Profile
     {
         public ProfileMapping() {
-
+            #region leaveallocation
             CreateMap<LeaveAllocation , LeaveAllocationDto>().ReverseMap();
-            CreateMap<LeaveType , LeaveTypeDto>().ReverseMap();
+            CreateMap<LeaveAllocation , CreateLeaveAllocationDto>().ReverseMap();
+            CreateMap<LeaveAllocation , UpdateLeaveAllocationDto>().ReverseMap();
+            #endregion
+
+            #region leaveRequest
             CreateMap<LeaveRequest , LeaveRequestDto>().ReverseMap();
             CreateMap<LeaveRequest , LeaveRequestListDto>().ReverseMap();
-        
+            CreateMap<LeaveRequest , CreateLeaveRequestDto>().ReverseMap();
+            CreateMap<LeaveRequest , UpdateLeaveRequestDto>().ReverseMap();
+            CreateMap<LeaveRequest , ChangeLeaveRequestAprovealDto>().ReverseMap();
+            #endregion
+
+            #region LeaveType
+            CreateMap<LeaveType, LeaveTypeDto>().ReverseMap();
+            CreateMap<LeaveType, CreateLeaveTypeDto>().ReverseMap();
+            #endregion
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HRManagement.Application.DTOs.LeaveTypeDtos.Validators;
+using HRManagement.Application.Exception;
 using HRManagement.Application.Features.LeaveTypes.Requests.Commands;
 using HRManagement.Application.Persistence.Cortract;
 using HRManagement.Domain;
@@ -31,7 +32,7 @@ namespace HRManagement.Application.Features.LeaveTypes.Handlers.Commands
 
             if (!ValidResual.IsValid)
             {
-                throw new Exception();
+                throw new ValidationException(ValidResual);
             }
 
             var leaveTypeCommand = _mapper.Map<LeaveType>(request.leaveTypeDto);

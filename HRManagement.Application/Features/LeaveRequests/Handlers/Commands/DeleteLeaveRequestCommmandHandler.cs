@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using HRManagement.Application.Exception;
 using HRManagement.Application.Features.LeaveRequests.Requests.Commands;
 using HRManagement.Application.Persistence.Cortract;
+using HRManagement.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -23,9 +25,15 @@ namespace HRManagement.Application.Features.LeaveRequests.Handlers.Commands
         }
 
         public async Task Handle(DeleteLeaveRequestCommand request, CancellationToken cancellationToken)
-        {
-            var LeaveRequest = await _leaveRequestRepository.GetById(request.Id);
-            await _leaveRequestRepository.Delete(LeaveRequest);
+        { 
+            var leaveRequest = await _leaveRequestRepository.GetById(request.Id);
+
+            if(leaveRequest == null )
+            {
+                throw new NotFoundException(nameof(LeaveRequest),request.Id);
+            }
+
+            await _leaveRequestRepository.Delete(leaveRequest);
         }
     }
 }
