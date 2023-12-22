@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace HRManagement.Application.Persistence.Cortract
 {
-    public interface IGenericRepository<T> where T : BaseDomainEntity
+    public interface IGenericRepository<T> where T : class
     {
         Task<T> GetById(int id);
 
@@ -14,9 +14,9 @@ namespace HRManagement.Application.Persistence.Cortract
 
         Task<T> Add(T entity);
 
-        Task<T> Update(T entity);
+        Task Update(T entity);
 
-        Task<T> Delete(T entity);
+        Task Delete(T entity);
 
 
 
