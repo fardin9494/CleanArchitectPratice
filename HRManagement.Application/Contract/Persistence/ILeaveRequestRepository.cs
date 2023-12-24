@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRManagement.Application.Persistence.Cortract
+namespace HRManagement.Application.Contract.Persistence
 {
     public interface ILeaveRequestRepository:IGenericRepository<LeaveRequest>
     {
