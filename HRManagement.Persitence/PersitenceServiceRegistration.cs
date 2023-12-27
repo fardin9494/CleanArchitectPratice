@@ -11,17 +11,16 @@ namespace HRManagement.Persitence
 {
     public static class PersitenceServiceRegistration
     {
-        public static IServiceCollection Configure(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection PersistenceServiceConfigure(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<LeaveManagementContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("LeaveManagementConnectionString"));
-            });
+          
 
             services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<ILeaveAllocationRepository , LeaveAllocationRepository>();
             services.AddScoped<ILeaveTypeRepository , LeaveTypeRepository>();
             services.AddScoped<ILeaveRequestRepository , LeaveRequestRepository>();
+
+            services.AddDbContext<LeaveManagementContext>(x => x.UseSqlServer(configuration.GetConnectionString("LeaveManagementConnectionString")));
 
             return services;
         } 

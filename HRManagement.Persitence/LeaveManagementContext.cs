@@ -11,17 +11,21 @@ namespace HRManagement.Persitence
 {
     public class LeaveManagementContext : DbContext
     {
-        public DbSet<LeaveType> LeaveTypes { get; set; }
-        public DbSet<LeaveRequest> LeaveRequests { get; set; }
-        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+       
+
         public LeaveManagementContext(DbContextOptions<LeaveManagementContext> option) : base(option)
         {
             
         }
 
+        public DbSet<LeaveType> LeaveTypes { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
+        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(LeaveManagementContext).Assembly);
+            base.OnModelCreating(modelBuilder);
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)

@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRManagement.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRManagement.Domain", "HRManagement.Domain\HRManagement.Domain.csproj", "{D964F74C-DCAD-426D-909F-CD6889871072}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManagement.Infrastructure", "HRManagement.Infrastructure\HRManagement.Infrastructure.csproj", "{D577ABFF-0645-497E-BA69-2FB7C09F52A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRManagement.Infrastructure", "HRManagement.Infrastructure\HRManagement.Infrastructure.csproj", "{D577ABFF-0645-497E-BA69-2FB7C09F52A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManagement.Persitence", "HRManagement.Persitence\HRManagement.Persitence.csproj", "{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRManagement.Persitence", "HRManagement.Persitence\HRManagement.Persitence.csproj", "{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HrMangement.Api", "HrMangement.Api\HrMangement.Api.csproj", "{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{D964F74C-DCAD-426D-909F-CD6889871072} = {4FB77BFF-8CD5-4783-86CB-AA24EB4EB6A6}
 		{D577ABFF-0645-497E-BA69-2FB7C09F52A8} = {6C05328B-5408-4901-BA08-7FDED46760EC}
 		{D97C8B77-E46A-4C41-A8BF-18AB412B8CB6} = {6C05328B-5408-4901-BA08-7FDED46760EC}
+		{54E8A18C-3482-42AE-BD2B-26E0A4C1E6DC} = {196AE48E-7C49-46E0-89D5-FD0C8D927BF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C71D2536-4AB1-4B64-8497-5984656B4122}

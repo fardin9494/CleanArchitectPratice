@@ -9,6 +9,7 @@ namespace HRManagement.Application
 {
     public static class ApplicationServicesRegistration
     {
+
         public static void AplicationServiceConfiguration(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
