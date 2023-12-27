@@ -5,7 +5,7 @@ using HRManagement.Application.DTOs.LeaveTypeDtos;
 
 namespace HRManagement.Application.DTOs.LeaveRequestDtos
 {
-    internal class LeaveRequestListDto
+    public class LeaveRequestListDto
     {
         public DateTime RequestDate { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using HRManagement.Application.DTOs.LeaveTypeDtos;
+using HRManagement.Application.Features.LeaveTypes.Requests.Commands;
 using HRManagement.Application.Features.LeaveTypes.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,33 +24,44 @@ namespace HrMangement.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<LeaveTypeDto>>> GetAsync()
         {
-            var query = await _madiat.Send(new GetLeaveTypesListRequest());
-            return query;
+            var LeaveTypes = await _madiat.Send(new GetLeaveTypesListRequest());
+            return Ok(LeaveTypes);
         }
 
         // GET api/<LeaveTypeController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<LeaveTypeDto>> Get(int id)
         {
-            return "value";
+            var LeaveType = await _madiat.Send(new GetLeaveTypeDetailsRequest { Id = id });
+            return Ok(LeaveType);
         }
 
         // POST api/<LeaveTypeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post([FromBody] CreateLeaveTypeDto leaveType)
         {
+            var command =  new CreateLeaveTypeCommand{ leaveTypeDto  = leaveType };
+            var response = await _madiat.Send(command);
+            return Ok(response);
+
         }
 
         // PUT api/<LeaveTypeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Put(int id, [FromBody] LeaveTypeDto leaveType)
         {
+            var command = new UpdateLeaveTypeCommand { leaveTypeDto = leaveType };
+            await _madiat.Send(command);
+            return NoContent();
         }
 
         // DELETE api/<LeaveTypeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var command = new DeleteLeaveTypeCommand { Id = id };
+            await _madiat.Send(command);
+            return NoContent();
         }
     }
 }
