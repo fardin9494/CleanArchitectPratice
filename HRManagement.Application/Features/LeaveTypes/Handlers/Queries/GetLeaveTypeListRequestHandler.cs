@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HRManagement.Application.Features.LeaveTypes.Handlers.Queries
 {
-    internal class GetLeaveTypeListRequestHandler : IRequestHandler<GetLeaveTypesListRequest, List<LeaveTypeDto>>
+    public class GetLeaveTypeListRequestHandler : IRequestHandler<GetLeaveTypesListRequest, List<LeaveTypeDto>>
     {
 
         private readonly ILeaveTypeRepository _leaveTypeRepository;

@@ -2,6 +2,7 @@ using HRManagement.Persitence;
 using HRManagement.Infrastructure;
 using HRManagement.Application;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 

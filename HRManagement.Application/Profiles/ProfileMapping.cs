@@ -9,7 +9,7 @@ using System.Text;
 
 namespace HRManagement.Application.Profiles
 {
-    internal class ProfileMapping : Profile
+    public class ProfileMapping : Profile
     {
         public ProfileMapping() {
             #region leaveallocation

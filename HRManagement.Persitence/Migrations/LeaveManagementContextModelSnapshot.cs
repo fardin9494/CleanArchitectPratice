@@ -117,7 +117,6 @@ namespace HRManagement.Persitence.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationDate")
@@ -130,7 +129,6 @@ namespace HRManagement.Persitence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -140,6 +138,16 @@ namespace HRManagement.Persitence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LeaveTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeafultDay = 10,
+                            ModificationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Vacation"
+                        });
                 });
 
             modelBuilder.Entity("HRManagement.Domain.LeaveAllocation", b =>

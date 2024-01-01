@@ -25,7 +25,7 @@ namespace HRManagement.Persitence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(LeaveManagementContext).Assembly);
-            base.OnModelCreating(modelBuilder);
+       
         }
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
