@@ -10,10 +10,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using HRManagement.Application.Response;
+using System.Linq;
 
 namespace HRManagement.Application.Features.LeaveTypes.Handlers.Commands
 {
-    public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, int>
+    public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, BaseCommandResponse>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
@@ -25,19 +27,30 @@ namespace HRManagement.Application.Features.LeaveTypes.Handlers.Commands
             _mapper = mapper;
         }
 
-        public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
+            var response = new BaseCommandResponse();
             var validationClass = new ILeaveTypeDtoValidator();
             var ValidResual = await validationClass.ValidateAsync(request.leaveTypeDto);
 
             if (!ValidResual.IsValid)
             {
-                throw new ValidationException(ValidResual);
+                response.Message = "Creation Failed";
+                response.Success = false;
+                response.Errors = ValidResual.Errors.Select(x => x.ErrorMessage).ToList();
+            }
+            else
+            {
+                var leaveTypeCommand = _mapper.Map<LeaveType>(request.leaveTypeDto);
+                var leaveType = await _leaveTypeRepository.Add(leaveTypeCommand);
+                response.Message = "Operation Succedded";
+                response.Success = true;
+                response.Id = leaveType.Id;
+
             }
 
-            var leaveTypeCommand = _mapper.Map<LeaveType>(request.leaveTypeDto);
-            var leaveType = await _leaveTypeRepository.Add(leaveTypeCommand);
-            return leaveType.Id;
+            
+            return response;
         }
     }
 }

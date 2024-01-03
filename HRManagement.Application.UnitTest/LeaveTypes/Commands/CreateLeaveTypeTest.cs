@@ -4,6 +4,7 @@ using HRManagement.Application.DTOs.LeaveTypeDtos;
 using HRManagement.Application.Features.LeaveTypes.Handlers.Commands;
 using HRManagement.Application.Features.LeaveTypes.Requests.Commands;
 using HRManagement.Application.Profiles;
+using HRManagement.Application.Response;
 using HRManagement.Application.UnitTest.Mocks;
 using HRManagement.Persitence.Repositores;
 using Moq;
@@ -49,7 +50,7 @@ namespace HRManagement.Application.UnitTest.LeaveTypes.Commands
             { leaveTypeDto = _leaveTypeDto}
                 , CancellationToken.None);
 
-            await Result.ShouldBeOfType<Task<int>>();
+            await Result.ShouldBeOfType<Task<BaseCommandResponse>>();
 
             
 

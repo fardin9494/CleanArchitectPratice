@@ -15,6 +15,8 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddTransient<ILocalStorageService,LocalStorageService>();
 
+builder.Services.AddTransient<ILeaveTypeService, LeaveTypeService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
